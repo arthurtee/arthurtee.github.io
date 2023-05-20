@@ -31,8 +31,8 @@ h3 { font-size: 132%; }
 h4 { font-size: 122%; }
 h5 { font-size: 112%; }
 h1, h2, h3, h4 { color: #333; }
-p { font-size: 100%; line-height: 24px; padding-right: 3em; }
-a { color: #FF6600 ; text-decoration: none;}
+p { font-size: 110%; line-height: 24px; padding-right: 3em; }
+a { color: #2164f4; text-decoration: none;}
 a:hover { text-decoration: none; }
 strong { font-weight: bold; }
 p.enlarge { font-size: 144%; padding-right: 6.5em; line-height: 24px; }
@@ -47,7 +47,7 @@ p.enlarge span { color: #000 }
 a#pdf { display: block; float: left; background: #666; color: white; padding: 6px 50px 6px 12px; margin-bottom: 6px; text-decoration: none;  }
 a#pdf:hover { background: #222; }
 
-.job { position: relative; margin-bottom: 1em; padding-bottom: 1em; border-bottom: 1px solid #ccc; }
+.job { position: relative; }
 .job h4 { position: absolute; top: 0.35em; right: 0 }
 .job p { margin: 0.75em 0 3em 0; }
 
