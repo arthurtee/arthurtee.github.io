@@ -1,0 +1,15 @@
+{
+  "name": "resume-automation",
+  "version": "1.0.0",
+  "description": "Automated tests for the resume website",
+  "scripts": {
+    "test": "playwright test",
+    "test:show": "playwright test --headed",
+    "test:multi": "playwright test --browser=all"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.10.0",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.4"
+  }
+}
