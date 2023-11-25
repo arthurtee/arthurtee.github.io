@@ -1,10 +1,9 @@
 import { PlaywrightTestConfig, test, expect } from '@playwright/test';
-
-const liveUrl = 'https://arthurtee.github.io/';
+import env from '../env';
 
 test.describe.parallel('Resume', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto(liveUrl);
+    await page.goto(env.baseUrl);
   });
 
   test('should have correct title', async ({ page }) => {
@@ -22,7 +21,23 @@ test.describe.parallel('Resume', () => {
   });
 
 //TODO: Investigate test case fails when run in headless mode.
-  test('clicking Indeed link should create a new page of Indeed', async ({ page, context }) => {
+  test('clicking GovTech link should create a new page for Data Science and Artificial Intelligence', async ({ page, context }) => {
+    const newPagePromise = context.waitForEvent('page');
+    await page.click('data-testid=gts-link');
+    const newPage = await newPagePromise;
+    await newPage.waitForLoadState();
+    await expect(newPage).toHaveTitle(/Data Science and Artificial Intelligence/);
+  });
+
+  test('clicking CDG Zig link should create a new page for CDG Zig', async ({ page, context }) => {
+    const newPagePromise = context.waitForEvent('page');
+    await page.click('data-testid=cdg-link');
+    const newPage = await newPagePromise;
+    await newPage.waitForLoadState();
+    await expect(newPage).toHaveTitle(/ComfortDelGro/);
+  });
+
+  test('clicking Indeed link should create a new page for Indeed', async ({ page, context }) => {
     const newPagePromise = context.waitForEvent('page');
     await page.click('data-testid=ind-link');
     const newPage = await newPagePromise;
@@ -30,7 +45,7 @@ test.describe.parallel('Resume', () => {
     await expect(newPage).toHaveTitle(/Indeed/);
   });
 
-  test('clicking Shopee link should create a new page of Shopee', async ({ page, context }) => {
+  test('clicking Shopee link should create a new page for Shopee', async ({ page, context }) => {
     const newPagePromise = context.waitForEvent('page');
     await page.click('data-testid=sho-link');
     const newPage = await newPagePromise;

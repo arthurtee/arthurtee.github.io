@@ -11,7 +11,9 @@ Parallel tests are executed in a single file with separate worker processes for 
 * Install Playwright and documentation can be found [here](https://playwright.dev/docs/intro).
 * Install [nodejs](https://nodejs.org/en).
   * Install project dependencies: ```npm i```
-* Run the automated tests in playwright directory with below [modes](playwright/package.json):
+* Start local server: ```ts-node server.ts```
+* Start a new terminal to run the automated tests in playwright directory with below [modes](playwright/package.json):
   *  ```npm run test``` : run tests without loading the browser's UI.
-  *  ```npm run test:show``` : run tests by loading the browser's UI.
+  *  ```NODE_ENV=prod npm run test:show``` : run tests by loading the browser's UI in Production.
+  *  ```npm run test:show``` : run tests by loading the browser's UI in local development.
   *  ```npm run test:multi```: run tests with all browsers.
