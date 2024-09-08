@@ -52,6 +52,11 @@ test.describe.parallel('Resume', () => {
     await expect(newPage).toHaveTitle(/Shopee/);
   });
 
+    test('clicking DevOps cert link should redirect to Apex Global', async ({ page }) => {
+      await page.click('data-testid=devOps-cert-link');
+      await expect(page).toHaveTitle(/APEX Global/);
+    });
+
   test('clicking Google cert link should redirect to Coursera', async ({ page }) => {
     await page.click('data-testid=goo-cert-link');
     await expect(page).toHaveTitle(/Coursera/);
