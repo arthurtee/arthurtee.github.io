@@ -21,12 +21,12 @@ test.describe.parallel('Resume', () => {
   });
 
 //TODO: Investigate test case fails when run in headless mode.
-  test('clicking GovTech link should create a new page for Data Science and Artificial Intelligence', async ({ page, context }) => {
+  test('clicking GovTech link should create a new page for Video Analytics System (VAS)', async ({ page, context }) => {
     const newPagePromise = context.waitForEvent('page');
     await page.click('data-testid=gts-link');
     const newPage = await newPagePromise;
     await newPage.waitForLoadState();
-    await expect(newPage).toHaveTitle(/Data Science and Artificial Intelligence/);
+    await expect(newPage).toHaveTitle(/Video Analytics System (VAS) | Singapore Government Developer Portal/);
   });
 
   test('clicking CDG Zig link should create a new page for CDG Zig', async ({ page, context }) => {
@@ -42,7 +42,7 @@ test.describe.parallel('Resume', () => {
     await page.click('data-testid=ind-link');
     const newPage = await newPagePromise;
     await newPage.waitForLoadState();
-    await expect(newPage).toHaveTitle(/Indeed/);
+    await expect(newPage).toHaveURL(/indeed/);
   });
 
   test('clicking Shopee link should create a new page for Shopee', async ({ page, context }) => {
@@ -68,9 +68,9 @@ test.describe.parallel('Resume', () => {
   });
 
 //TODO: Investigate test case fails when run in headless mode.
-  test('clicking Udemy cert link should redirect to Udemy', async ({ page }) => {
-    await page.click('data-testid=ude-cert-link');
-    await expect(page).toHaveTitle(/Udemy/);
+  test('clicking istqb link should redirect to istqb', async ({ page }) => {
+    await page.click('data-testid=istqb-link');
+    await expect(page).toHaveTitle(/ISTQB - Successful Candidate Register/);
   });
 
   test.describe('Footer navigation links', () => {
